@@ -42,6 +42,7 @@ class App extends Component {
 
   render() {
     return (
+      
       <div className="App">
         <Header data={this.state.resumeData.main}/>
         <About data={this.state.resumeData.main}/>
