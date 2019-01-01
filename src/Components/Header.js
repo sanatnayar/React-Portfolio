@@ -4,6 +4,11 @@ import Route from 'react-router-dom/Route';
 class Header extends Component {
 
   render() {
+    if(this.props.data){
+      var networks= this.props.data.social.map(function(network){
+        return <li key={network.name}><a href={network.url}><i className={network.className}></i></a></li>
+      })
+    }
     return (
       <Router>
       <header id="home">
@@ -22,7 +27,7 @@ class Header extends Component {
          <ul id="nav" className="nav">
             <li><a href="https://sanatnayar.github.io/" >Back to Website</a></li>
 	         <li><a className="smoothscroll" href="#resume">Info</a></li>
-            <li><a className="smoothscroll" href="#portfolio">Works</a></li>
+            <li><a className="smoothscroll" href="#portfolio">Projects</a></li>
          </ul>
 
       </nav>
@@ -30,7 +35,10 @@ class Header extends Component {
       <div className="row banner">
          <div className="banner-text">
             <h1 className="responsive-headline">My Portfolio</h1>
-
+            <hr />
+            <ul className="social">
+               {networks}
+            </ul>
          </div>
       </div>
 
